@@ -11,9 +11,32 @@
 </script>
 <title>Tymeggs</title>
 <link rel="icon" type="image/x-icon" href="smile.png">
-<center>
+<style>
+	.scroll-elm {
+		animation: marquee 5s linear infinite;
+		filter: invert(100%);
+	}
+	@keyframes marquee {
+		0% {transform: translateX(-100%);}
+		100% {transform: translateX(100%);}
+	}
+</style>
+<script>
+	document.onkeypress = function(KeyEvent) { //Triggers when t or T are pressed
+		if (KeyEvent.keyCode == 116 || KeyEvent.keyCode == 84) {
+			let Elms = document.getElementsByTagName("*") //Gets all elements in the document
+			for (Elm of Elms) { //Loops through each elements
+				if (Elm.classList != undefined) {
+					Elm.classList.add("scroll-elm"); //Adds the animation class to the element
+				}
+			}
+		} else {
+			console.log(KeyEvent.keyCode)
+		}
+	}
+</script>
 </head>
-<body style="background-color:f8fcf9;">
+<body style="background-color:f8fcf9; text-align: center; overflow-x: hidden;">
 <h1>Hello, I am Tymeggs.</h1>
 <br>
 <h2> Contrary to popular belief, I am not a figment of your imagination, and I am indeed a real human being with real thoughts.</h3>
@@ -42,5 +65,6 @@
 <br>
 <h3>That is all. Please go away now.</h3>
 <br>
+<!--Aileron woz ere-->
 </body>
 </html>
